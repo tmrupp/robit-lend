@@ -5,6 +5,10 @@ public class CollideBullet : MonoBehaviour {
 	
 	void OnTriggerEnter2D (Collider2D col)
 	{
-		Debug.Log ("BOOM");
+		if (col.gameObject.tag.Equals ("Enemy")) {
+			Debug.Log(col.gameObject);
+			Destroy (col.gameObject.transform.parent.gameObject);
+			Destroy (gameObject);
+		}
 	}
 }
